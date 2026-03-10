@@ -3,523 +3,437 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ENVEE Real Estate LLC Dubai</title>
+  <title>ENVEE Real Estate | Dubai & Sharjah</title>
   <meta
     name="description"
-    content="ENVEE Real Estate LLC Dubai - Luxury real estate opportunities across Dubai and Sharjah."
-  />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet"
+    content="ENVEE Real Estate offers premium off-plan, commercial, residential, and interior solutions across Dubai and Sharjah."
   />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Fireworks Canvas -->
+  <canvas id="fireworks-canvas" aria-hidden="true"></canvas>
+
   <!-- Header -->
-  <header class="site-header">
+  <header class="site-header" id="top">
     <div class="container nav-container">
-      <a href="#home" class="brand">
-        <img src="images/envee-logo.jpeg" alt="ENVEE Real Estate logo" class="brand-logo" />
+      <a href="index.html" class="brand">
+        <img src="images/envee-logo.jpeg" alt="ENVEE Real Estate Logo" class="brand-logo" />
+        <div class="brand-text">
+          <span class="brand-name">ENVEE</span>
+          <span class="brand-subtitle">Real Estate</span>
+        </div>
       </a>
 
-      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation">
         <span></span>
         <span></span>
         <span></span>
       </button>
 
-      <nav class="site-nav" id="siteNav">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#properties">Properties</a>
-        <a href="#cities">Cities</a>
-        <a href="#why-us">Why ENVEE</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact" class="nav-cta">Contact</a>
+      <nav class="main-nav" id="main-nav">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+
+          <li class="has-dropdown">
+            <a href="#services">Services</a>
+            <ul class="dropdown-menu">
+              <li><a href="off-plan.html">Off-Plan Properties</a></li>
+              <li><a href="commercial.html">Commercial Real Estate</a></li>
+              <li><a href="residential.html">Residential Properties</a></li>
+              <li><a href="interior.html">Interior Contracting</a></li>
+            </ul>
+          </li>
+
+          <li><a href="#zones">Featured Areas</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
       </nav>
     </div>
   </header>
 
-  <main>
-    <!-- Hero -->
-    <section class="hero" id="home">
-      <div class="hero-overlay"></div>
-      <div class="hero-fireworks" id="heroFireworks" aria-hidden="true"></div>
+  <!-- Hero -->
+  <section class="hero-section">
+    <div class="hero-overlay"></div>
 
-      <div class="container hero-content">
-        <div class="hero-brand reveal">
-          <img src="images/envee-logo.jpeg" alt="ENVEE Real Estate LLC Dubai" class="hero-logo" />
-        </div>
-
-        <p class="hero-kicker reveal">Luxury Real Estate in the UAE</p>
-        <h1 class="hero-title reveal">
-          Exceptional Properties in Dubai & Sharjah
-        </h1>
-        <p class="hero-text reveal">
-          ENVEE Real Estate LLC Dubai delivers premium residential and investment
-          opportunities with a refined client experience, market insight, and
-          trusted guidance across the UAE.
+    <div class="container hero-content">
+      <div class="hero-copy">
+        <p class="eyebrow">Dubai • Sharjah • UAE</p>
+        <h1>Luxury Real Estate, Elevated by ENVEE</h1>
+        <p class="hero-text">
+          Discover premium residential and commercial opportunities with a real estate partner
+          focused on trust, market insight, and exceptional client service across the UAE.
         </p>
 
-        <div class="hero-actions reveal">
-          <a href="#properties" class="btn btn-gold">View Properties</a>
-          <a href="#contact" class="btn btn-outline">Book a Consultation</a>
+        <div class="hero-buttons">
+          <a href="#services" class="btn btn-primary">Explore Services</a>
+          <a href="#contact" class="btn btn-secondary">Contact Us</a>
         </div>
 
-        <div class="hero-stats reveal">
-          <div class="stat-card">
-            <h3 class="counter" data-target="200">0</h3>
-            <p>Premium Opportunities</p>
+        <div class="hero-highlights">
+          <div class="highlight-card">
+            <strong>Dubai</strong>
+            <span>Prime city opportunities</span>
           </div>
-          <div class="stat-card">
-            <h3 class="counter" data-target="2">0</h3>
-            <p>Key UAE Cities</p>
+          <div class="highlight-card">
+            <strong>Sharjah</strong>
+            <span>Smart value & growth</span>
           </div>
-          <div class="stat-card">
-            <h3 class="counter" data-target="100">0</h3>
-            <p>Client-Focused Service</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section class="section section-dark" id="about">
-      <div class="container about-grid">
-        <div class="about-text reveal">
-          <p class="section-tag">About ENVEE</p>
-          <h2 class="section-title">A Refined Approach to Real Estate</h2>
-          <p class="section-copy">
-            ENVEE Real Estate LLC Dubai is built around premium service,
-            strategic market knowledge, and a strong understanding of the UAE
-            property landscape. We focus on helping clients discover high-value
-            opportunities across Dubai and Sharjah with clarity, confidence, and
-            discretion.
-          </p>
-          <p class="section-copy">
-            Whether you are searching for a luxury home, an investment property,
-            or a promising off-plan opportunity, ENVEE is committed to making
-            the process seamless, elegant, and rewarding.
-          </p>
-
-          <div class="about-points">
-            <div class="about-point">
-              <span class="about-icon">◆</span>
-              <div>
-                <h3>Luxury Positioning</h3>
-                <p>Premium presentation and curated property opportunities.</p>
-              </div>
-            </div>
-            <div class="about-point">
-              <span class="about-icon">◆</span>
-              <div>
-                <h3>Market Insight</h3>
-                <p>Focused guidance across key UAE real estate segments.</p>
-              </div>
-            </div>
-            <div class="about-point">
-              <span class="about-icon">◆</span>
-              <div>
-                <h3>Client Experience</h3>
-                <p>Responsive, polished, and relationship-driven service.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="about-media reveal">
-          <img
-            src="images/dubai-skyline-2.jpeg"
-            alt="Dubai skyline view"
-            class="section-image"
-          />
-        </div>
-      </div>
-    </section>
-
-    <!-- Services -->
-    <section class="section section-light" id="services">
-      <div class="container">
-        <p class="section-tag center">Our Services</p>
-        <h2 class="section-title center">Tailored Real Estate Solutions</h2>
-        <p class="section-copy center section-intro">
-          Designed for clients seeking elegance, opportunity, and confidence in
-          every transaction.
-        </p>
-
-        <div class="services-grid">
-          <article class="service-card reveal">
-            <div class="service-number">01</div>
-            <h3>Residential Properties</h3>
-            <p>
-              Discover refined living through apartments, villas, waterfront
-              residences, and family homes in leading communities.
-            </p>
-          </article>
-
-          <article class="service-card reveal">
-            <div class="service-number">02</div>
-            <h3>Commercial Real Estate</h3>
-            <p>
-              Find professional spaces and investment assets aligned with your
-              long-term business and portfolio goals.
-            </p>
-          </article>
-
-          <article class="service-card reveal">
-            <div class="service-number">03</div>
-            <h3>Off-Plan Projects</h3>
-            <p>
-              Access future-forward developments with strong lifestyle appeal and
-              compelling investment potential.
-            </p>
-          </article>
-
-          <article class="service-card reveal">
-            <div class="service-number">04</div>
-            <h3>Investment Advisory</h3>
-            <p>
-              Evaluate premium real estate opportunities with a sharper focus on
-              positioning, growth, and value.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Featured Properties -->
-    <section class="section section-dark" id="properties">
-      <div class="container">
-        <p class="section-tag center">Featured Properties</p>
-        <h2 class="section-title center">Curated Opportunities</h2>
-        <p class="section-copy center section-intro">
-          A selection of elegant residential and investment-focused options
-          across key UAE destinations.
-        </p>
-
-        <div class="properties-grid">
-          <article class="property-card reveal">
-            <div class="property-image-wrap">
-              <img
-                src="images/hero-dubai.jpeg"
-                alt="Luxury marina apartment in Dubai"
-                class="property-image"
-              />
-              <span class="property-badge">Dubai Marina</span>
-            </div>
-            <div class="property-content">
-              <h3>Luxury Marina Residence</h3>
-              <p class="property-meta">3 Bedrooms • Waterfront View • Premium Finish</p>
-              <p class="property-text">
-                An elegant property experience designed for buyers seeking
-                prestige, comfort, and prime Dubai positioning.
-              </p>
-              <a href="#contact" class="property-link">Request Details</a>
-            </div>
-          </article>
-
-          <article class="property-card reveal">
-            <div class="property-image-wrap">
-              <img
-                src="images/dubai-skyline-2.jpeg"
-                alt="Downtown Dubai luxury property"
-                class="property-image"
-              />
-              <span class="property-badge">Downtown Dubai</span>
-            </div>
-            <div class="property-content">
-              <h3>Skyline Investment Suite</h3>
-              <p class="property-meta">High-Rise Living • City Views • Investor Appeal</p>
-              <p class="property-text">
-                A polished urban option for those looking to combine lifestyle
-                value with strong location appeal.
-              </p>
-              <a href="#contact" class="property-link">Request Details</a>
-            </div>
-          </article>
-
-          <article class="property-card reveal">
-            <div class="property-image-wrap">
-              <img
-                src="images/hero-dubai.jpeg"
-                alt="Sharjah family residence"
-                class="property-image"
-              />
-              <span class="property-badge">Sharjah</span>
-            </div>
-            <div class="property-content">
-              <h3>Modern Family Residence</h3>
-              <p class="property-meta">Spacious Layout • Community Living • Modern Design</p>
-              <p class="property-text">
-                A contemporary residential option suited for comfort, family
-                living, and long-term value.
-              </p>
-              <a href="#contact" class="property-link">Request Details</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Cities -->
-    <section class="section section-light" id="cities">
-      <div class="container">
-        <p class="section-tag center">Cities We Serve</p>
-        <h2 class="section-title center">Focused on Dubai & Sharjah</h2>
-
-        <div class="cities-grid">
-          <article class="city-card reveal city-card-large">
-            <img
-              src="images/hero-dubai.jpeg"
-              alt="Dubai marina skyline"
-              class="city-image"
-            />
-            <div class="city-content">
-              <h3>Dubai</h3>
-              <p>
-                A global destination for luxury living, investment growth, iconic
-                developments, and world-class lifestyle appeal.
-              </p>
-            </div>
-          </article>
-
-          <article class="city-card reveal">
-            <img
-              src="images/dubai-skyline-2.jpeg"
-              alt="Sharjah and UAE skyline inspiration"
-              class="city-image"
-            />
-            <div class="city-content">
-              <h3>Sharjah</h3>
-              <p>
-                A strong residential market with family-focused communities,
-                modern developments, and attractive long-term value.
-              </p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Why Choose Us -->
-    <section class="section section-dark" id="why-us">
-      <div class="container">
-        <p class="section-tag center">Why Choose ENVEE</p>
-        <h2 class="section-title center">Luxury. Trust. Results.</h2>
-
-        <div class="why-grid">
-          <article class="why-card reveal">
-            <h3>Premium Brand Experience</h3>
-            <p>
-              Every touchpoint is designed to reflect professionalism, elegance,
-              and confidence.
-            </p>
-          </article>
-
-          <article class="why-card reveal">
-            <h3>UAE Market Awareness</h3>
-            <p>
-              We focus on strong opportunities in key areas with a clear sense of
-              positioning and value.
-            </p>
-          </article>
-
-          <article class="why-card reveal">
-            <h3>Client-Centered Guidance</h3>
-            <p>
-              We prioritize clarity, responsiveness, and a smooth journey from
-              first inquiry to final decision.
-            </p>
-          </article>
-
-          <article class="why-card reveal">
-            <h3>Investment Perspective</h3>
-            <p>
-              We help align property opportunities with long-term goals and
-              premium market potential.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Trust / Stats -->
-    <section class="section section-light" id="trust">
-      <div class="container">
-        <p class="section-tag center">Our Strength</p>
-        <h2 class="section-title center">Built for Confidence</h2>
-
-        <div class="trust-grid">
-          <div class="trust-card reveal">
-            <h3 class="counter" data-target="1">0</h3>
-            <p>Billion-Level Vision</p>
-          </div>
-          <div class="trust-card reveal">
-            <h3 class="counter" data-target="15">0</h3>
-            <p>Years of Ambition</p>
-          </div>
-          <div class="trust-card reveal">
-            <h3 class="counter" data-target="2000">0</h3>
-            <p>Client-First Mindset</p>
-          </div>
-          <div class="trust-card reveal">
-            <h3 class="counter" data-target="100">0</h3>
-            <p>Premium Service Standard</p>
+          <div class="highlight-card">
+            <strong>UAE</strong>
+            <span>Luxury-driven advisory</span>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- FAQ -->
-    <section class="section section-dark" id="faq">
-      <div class="container faq-container">
-        <p class="section-tag center">FAQ</p>
-        <h2 class="section-title center">Frequently Asked Questions</h2>
+      <div class="hero-form-card">
+        <h3>Book a Consultation</h3>
+        <p>Tell us what you're looking for and our team will connect with you.</p>
 
-        <div class="faq-list">
-          <div class="faq-item reveal">
-            <button class="faq-question">
-              What kind of properties does ENVEE handle?
-            </button>
-            <div class="faq-answer">
-              <p>
-                ENVEE focuses on premium residential, commercial, and investment
-                opportunities, including luxury and off-plan real estate.
-              </p>
-            </div>
-          </div>
-
-          <div class="faq-item reveal">
-            <button class="faq-question">
-              Which cities do you primarily serve?
-            </button>
-            <div class="faq-answer">
-              <p>
-                Our current focus is on Dubai and Sharjah, with an emphasis on
-                high-value locations and refined property opportunities.
-              </p>
-            </div>
-          </div>
-
-          <div class="faq-item reveal">
-            <button class="faq-question">
-              Can I inquire about investment options?
-            </button>
-            <div class="faq-answer">
-              <p>
-                Yes. We can help guide you toward property opportunities aligned
-                with your investment goals, lifestyle needs, and market
-                preferences.
-              </p>
-            </div>
-          </div>
-
-          <div class="faq-item reveal">
-            <button class="faq-question">
-              How do I get in touch with ENVEE?
-            </button>
-            <div class="faq-answer">
-              <p>
-                Use the contact form below and we will get back to you to discuss
-                your property interests and requirements.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section class="section section-light" id="contact">
-      <div class="container contact-grid">
-        <div class="contact-info reveal">
-          <p class="section-tag">Contact Us</p>
-          <h2 class="section-title">Start Your Property Journey</h2>
-          <p class="section-copy">
-            Share your interest and our team will connect with you to discuss
-            suitable real estate opportunities in Dubai and Sharjah.
-          </p>
-
-          <div class="contact-details">
-            <div class="contact-detail">
-              <span>Email</span>
-              <p>jasmeet_singh05@yahoo.com</p>
-            </div>
-            <div class="contact-detail">
-              <span>Phone</span>
-              <p>+971 50 845 3395</p>
-            </div>
-            <div class="contact-detail">
-              <span>Location</span>
-              <p>Dubai, United Arab Emirates</p>
-            </div>
-          </div>
-        </div>
-
-        <form class="contact-form reveal">
-          <div class="form-row">
-            <input type="text" name="name" placeholder="Your Name" required />
-          </div>
-          <div class="form-row">
-            <input type="email" name="email" placeholder="Your Email" required />
-          </div>
-          <div class="form-row">
-            <input type="tel" name="phone" placeholder="Phone Number" />
-          </div>
-          <div class="form-row">
-            <select name="interest">
-              <option value="">Interested In</option>
-              <option value="buying">Buying</option>
-              <option value="selling">Selling</option>
-              <option value="investing">Investing</option>
-              <option value="off-plan">Off-Plan Projects</option>
-            </select>
-          </div>
-          <div class="form-row">
-            <textarea
-              name="message"
-              rows="5"
-              placeholder="Tell us what kind of property you are looking for"
-            ></textarea>
-          </div>
-          <button type="submit" class="btn btn-gold btn-full">Send Inquiry</button>
+        <form class="quick-form">
+          <input type="text" placeholder="Full Name" />
+          <input type="email" placeholder="Email Address" />
+          <input type="tel" placeholder="Phone Number" />
+          <select>
+            <option selected disabled>Select Interest</option>
+            <option>Off-Plan Properties</option>
+            <option>Commercial Real Estate</option>
+            <option>Residential Properties</option>
+            <option>Interior Contracting</option>
+          </select>
+          <button type="submit" class="btn btn-primary full-width">Request Call Back</button>
         </form>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats-section">
+    <div class="container stats-grid">
+      <div class="stat-card">
+        <h2 class="counter" data-target="250">0</h2>
+        <p>Premium Properties</p>
+      </div>
+      <div class="stat-card">
+        <h2 class="counter" data-target="120">0</h2>
+        <p>Happy Clients</p>
+      </div>
+      <div class="stat-card">
+        <h2 class="counter" data-target="15">0</h2>
+        <p>Prime Communities</p>
+      </div>
+      <div class="stat-card">
+        <h2 class="counter" data-target="4">0</h2>
+        <p>Core Service Divisions</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about-section section-padding" id="about">
+    <div class="container about-grid">
+      <div class="about-image-card">
+        <div class="image-frame">
+          <img src="images/envee-logo.jpeg" alt="ENVEE Real Estate" />
+        </div>
+      </div>
+
+      <div class="about-content">
+        <p class="section-tag">About ENVEE</p>
+        <h2>Your Trusted Real Estate Partner in the UAE</h2>
+        <p>
+          ENVEE Real Estate is built around one goal: creating a premium, reliable, and
+          results-driven property experience for clients across Dubai and Sharjah. From
+          investment opportunities to end-user homes and interior solutions, our approach is
+          tailored, transparent, and market-aware.
+        </p>
+        <p>
+          We focus on understanding your priorities first, then guiding you through each stage
+          with professionalism, insight, and attention to detail.
+        </p>
+
+        <div class="about-features">
+          <div class="feature-box">Luxury-focused client experience</div>
+          <div class="feature-box">UAE market understanding</div>
+          <div class="feature-box">Residential & commercial expertise</div>
+          <div class="feature-box">End-to-end advisory support</div>
+        </div>
+
+        <a href="#contact" class="btn btn-primary">Talk to Our Team</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services-section section-padding" id="services">
+    <div class="container">
+      <div class="section-heading center">
+        <p class="section-tag">Our Services</p>
+        <h2>Specialized Real Estate Solutions</h2>
+        <p>
+          Explore our focused service divisions designed to support buyers, investors, businesses,
+          and property owners in the UAE.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card">
+          <div class="service-icon">01</div>
+          <h3>Off-Plan Properties</h3>
+          <p>
+            Access high-potential off-plan developments and early-stage opportunities with
+            strategic guidance for both investors and end users.
+          </p>
+          <a href="off-plan.html" class="text-link">View Page</a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">02</div>
+          <h3>Commercial Real Estate</h3>
+          <p>
+            Find premium spaces for retail, office, mixed-use, and investment objectives with a
+            commercial-first advisory approach.
+          </p>
+          <a href="commercial.html" class="text-link">View Page</a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">03</div>
+          <h3>Residential Properties</h3>
+          <p>
+            Discover apartments, villas, and family homes selected around lifestyle, location,
+            design, and long-term value.
+          </p>
+          <a href="residential.html" class="text-link">View Page</a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">04</div>
+          <h3>Interior Contracting</h3>
+          <p>
+            Transform interiors with refined design execution, premium finishes, and elegant
+            solutions aligned with your property vision.
+          </p>
+          <a href="interior.html" class="text-link">View Page</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Areas -->
+  <section class="zones-section section-padding" id="zones">
+    <div class="container">
+      <div class="section-heading center">
+        <p class="section-tag">Featured Areas</p>
+        <h2>Where ENVEE Focuses</h2>
+        <p>
+          We support clients across major UAE destinations, with particular attention to Dubai
+          and Sharjah’s most desirable communities.
+        </p>
+      </div>
+
+      <div class="zones-grid">
+        <div class="zone-card">
+          <h3>Dubai Marina</h3>
+          <p>Waterfront living, skyline views, and high-demand premium residences.</p>
+        </div>
+        <div class="zone-card">
+          <h3>Downtown Dubai</h3>
+          <p>Iconic addresses, luxury apartments, and central city prestige.</p>
+        </div>
+        <div class="zone-card">
+          <h3>Business Bay</h3>
+          <p>High-growth urban investment opportunities and mixed-use appeal.</p>
+        </div>
+        <div class="zone-card">
+          <h3>Jumeirah Village Circle</h3>
+          <p>Strong residential demand with value-driven modern communities.</p>
+        </div>
+        <div class="zone-card">
+          <h3>Aljada, Sharjah</h3>
+          <p>Contemporary lifestyle developments with long-term promise.</p>
+        </div>
+        <div class="zone-card">
+          <h3>Muwaileh, Sharjah</h3>
+          <p>Practical family living with accessibility and growing interest.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="why-section section-padding">
+    <div class="container why-grid">
+      <div class="why-content">
+        <p class="section-tag">Why Choose ENVEE</p>
+        <h2>Luxury Service Backed by Strategy</h2>
+        <p>
+          We combine market awareness, tailored guidance, and a polished client journey to help
+          you make confident real estate decisions in a fast-moving market.
+        </p>
+
+        <ul class="why-list">
+          <li>Personalized advisory for investors and end users</li>
+          <li>Focused presence across Dubai and Sharjah</li>
+          <li>Premium brand experience from inquiry to closing</li>
+          <li>Clear communication and responsive support</li>
+        </ul>
+      </div>
+
+      <div class="why-cards">
+        <div class="mini-card">
+          <h3>Client-Focused</h3>
+          <p>Every recommendation begins with your priorities, goals, and timeline.</p>
+        </div>
+        <div class="mini-card">
+          <h3>Market-Aware</h3>
+          <p>We help you evaluate opportunities using real local insight.</p>
+        </div>
+        <div class="mini-card">
+          <h3>Premium Delivery</h3>
+          <p>Our brand experience reflects the level of property we represent.</p>
+        </div>
+        <div class="mini-card">
+          <h3>End-to-End Support</h3>
+          <p>From first inquiry to final decision, we stay involved.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section section-padding" id="faq">
+    <div class="container">
+      <div class="section-heading center">
+        <p class="section-tag">FAQ</p>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Which areas do you serve?</summary>
+          <p>
+            ENVEE focuses on prime opportunities across the UAE, with strong attention on Dubai
+            and Sharjah.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Do you work with both investors and end users?</summary>
+          <p>
+            Yes. We support investors, first-time buyers, families, and businesses looking for
+            the right real estate solution.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Can I get help with off-plan projects?</summary>
+          <p>
+            Yes. We provide guidance on off-plan opportunities, helping clients assess developer
+            reputation, location potential, and project fit.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Do you offer interior-related services too?</summary>
+          <p>
+            Yes. ENVEE also offers interior contracting support for clients seeking premium design
+            execution and property enhancement.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact-section section-padding" id="contact">
+    <div class="container contact-grid">
+      <div class="contact-info">
+        <p class="section-tag">Contact Us</p>
+        <h2>Let’s Find Your Next Property Opportunity</h2>
+        <p>
+          Whether you're looking to buy, invest, lease, or enhance a property, our team is ready
+          to assist you with a premium and personalized experience.
+        </p>
+
+        <div class="contact-cards">
+          <div class="contact-card">
+            <h3>Phone</h3>
+            <p><a href="tel:+971500000000">+971 50 000 0000</a></p>
+          </div>
+          <div class="contact-card">
+            <h3>Email</h3>
+            <p><a href="mailto:info@envee.ae">info@envee.ae</a></p>
+          </div>
+          <div class="contact-card">
+            <h3>Service Areas</h3>
+            <p>Dubai • Sharjah • United Arab Emirates</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap">
+        <form class="contact-form">
+          <div class="form-row">
+            <input type="text" placeholder="Your Name" />
+            <input type="email" placeholder="Your Email" />
+          </div>
+          <div class="form-row">
+            <input type="tel" placeholder="Phone Number" />
+            <select>
+              <option selected disabled>Select Service</option>
+              <option>Off-Plan Properties</option>
+              <option>Commercial Real Estate</option>
+              <option>Residential Properties</option>
+              <option>Interior Contracting</option>
+            </select>
+          </div>
+          <textarea rows="6" placeholder="Tell us what you're looking for"></textarea>
+          <button type="submit" class="btn btn-primary full-width">Send Inquiry</button>
+        </form>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="site-footer">
     <div class="container footer-grid">
-      <div class="footer-brand">
-        <img src="images/envee-logo.jpeg" alt="ENVEE logo" class="footer-logo" />
-        <p>
-          ENVEE Real Estate LLC Dubai offers a premium, client-focused approach
-          to real estate across Dubai and Sharjah.
-        </p>
+      <div>
+        <div class="footer-brand">
+          <img src="images/envee-logo.jpeg" alt="ENVEE Logo" class="footer-logo" />
+          <div>
+            <h3>ENVEE Real Estate</h3>
+            <p>Luxury property guidance for Dubai and Sharjah.</p>
+          </div>
+        </div>
       </div>
 
-      <div class="footer-links">
-        <h3>Quick Links</h3>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#properties">Properties</a>
-        <a href="#contact">Contact</a>
+      <div>
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#zones">Featured Areas</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
       </div>
 
-      <div class="footer-links">
-        <h3>Locations</h3>
-        <p>Dubai</p>
-        <p>Sharjah</p>
-        <p>United Arab Emirates</p>
+      <div>
+        <h4>Service Pages</h4>
+        <ul class="footer-links">
+          <li><a href="off-plan.html">Off-Plan Properties</a></li>
+          <li><a href="commercial.html">Commercial Real Estate</a></li>
+          <li><a href="residential.html">Residential Properties</a></li>
+          <li><a href="interior.html">Interior Contracting</a></li>
+        </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <p>© 2026 ENVEE Real Estate LLC Dubai. All rights reserved.</p>
+      <p>© 2026 ENVEE Real Estate. All rights reserved.</p>
     </div>
   </footer>
 
