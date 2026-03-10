@@ -1,174 +1,298 @@
+// =========================
+// ENVEE Real Estate Scripts
+// =========================
+
 document.addEventListener("DOMContentLoaded", () => {
-  // Mobile nav toggle
-  const navToggle = document.getElementById("navToggle");
-  const siteNav = document.getElementById("siteNav");
+  setupMobileMenu();
+  setupAnimatedCounters();
+  setupSmoothSectionReveal();
+  setupFireworks();
+  setupDummyForms();
+});
 
-  if (navToggle && siteNav) {
-    navToggle.addEventListener("click", () => {
-      const isOpen = siteNav.classList.toggle("open");
-      navToggle.setAttribute("aria-expanded", String(isOpen));
-    });
+// =========================
+// Mobile Menu
+// =========================
+function setupMobileMenu() {
+  const menuToggle = document.getElementById("menu-toggle");
+  const mainNav = document.getElementById("main-nav");
 
-    siteNav.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        siteNav.classList.remove("open");
-        navToggle.setAttribute("aria-expanded", "false");
-      });
-    });
-  }
+  if (!menuToggle || !mainNav) return;
 
-  // Reveal on scroll
-  const revealElements = document.querySelectorAll(".reveal");
+  menuToggle.addEventListener("click", () => {
+    mainNav.classList.toggle("open");
+  });
 
-  const revealObserver = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.15,
-    }
-  );
-
-  revealElements.forEach((el) => revealObserver.observe(el));
-
-  // Counter animation
-  const counters = document.querySelectorAll(".counter");
-  const animatedCounters = new WeakSet();
-
-  const counterObserver = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting || animatedCounters.has(entry.target)) return;
-
-        const el = entry.target;
-        const target = Number(el.dataset.target || 0);
-        const duration = 1600;
-        const startTime = performance.now();
-
-        animatedCounters.add(el);
-
-        const formatValue = (value, finalTarget) => {
-          if (finalTarget >= 1000) return `${Math.floor(value)}+`;
-          if (finalTarget === 1) return "1B+";
-          if (finalTarget >= 100) return `${Math.floor(value)}+`;
-          return `${Math.floor(value)}+`;
-        };
-
-        const update = (currentTime) => {
-          const elapsed = currentTime - startTime;
-          const progress = Math.min(elapsed / duration, 1);
-          const eased = 1 - Math.pow(1 - progress, 3);
-          const currentValue = target * eased;
-
-          el.textContent = formatValue(currentValue, target);
-
-          if (progress < 1) {
-            requestAnimationFrame(update);
-          } else {
-            el.textContent = formatValue(target, target);
-          }
-        };
-
-        requestAnimationFrame(update);
-        observer.unobserve(el);
-      });
-    },
-    {
-      threshold: 0.4,
-    }
-  );
-
-  counters.forEach((counter) => counterObserver.observe(counter));
-
-  // FAQ accordion
-  const faqItems = document.querySelectorAll(".faq-item");
-
-  faqItems.forEach((item) => {
-    const button = item.querySelector(".faq-question");
-    const answer = item.querySelector(".faq-answer");
-
-    if (!button || !answer) return;
-
-    button.addEventListener("click", () => {
-      const isActive = item.classList.contains("active");
-
-      faqItems.forEach((otherItem) => {
-        otherItem.classList.remove("active");
-        const otherAnswer = otherItem.querySelector(".faq-answer");
-        if (otherAnswer) {
-          otherAnswer.style.maxHeight = null;
-        }
-      });
-
-      if (!isActive) {
-        item.classList.add("active");
-        answer.style.maxHeight = `${answer.scrollHeight}px`;
+  const navLinks = mainNav.querySelectorAll("a");
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      if (window.innerWidth <= 860) {
+        mainNav.classList.remove("open");
       }
     });
   });
 
-  // Subtle fireworks / sparkle particles in hero
-  const heroFireworks = document.getElementById("heroFireworks");
+  document.addEventListener("click", (event) => {
+    const clickedInsideNav = mainNav.contains(event.target);
+    const clickedToggle = menuToggle.contains(event.target);
 
-  if (heroFireworks) {
-    const particleCount = 14;
+    if (!clickedInsideNav && !clickedToggle && window.innerWidth <= 860) {
+      mainNav.classList.remove("open");
+    }
+  });
 
-    for (let i = 0; i < particleCount; i++) {
-      const spark = document.createElement("span");
-      spark.className = "firework";
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 860) {
+      mainNav.classList.remove("open");
+    }
+  });
+}
 
-      const top = Math.random() * 70 + 5;
-      const left = Math.random() * 90 + 3;
-      const delay = Math.random() * 4.5;
-      const duration = 3.5 + Math.random() * 2.5;
+// =========================
+// Animated Counters
+// =========================
+function setupAnimatedCounters() {
+  const counters = document.querySelectorAll(".counter");
 
-      spark.style.top = `${top}%`;
-      spark.style.left = `${left}%`;
-      spark.style.animationDelay = `${delay}s`;
-      spark.style.animationDuration = `${duration}s`;
+  if (!counters.length) return;
 
-      heroFireworks.appendChild(spark);
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        const counter = entry.target;
+        const target = Number(counter.getAttribute("data-target")) || 0;
+        animateCounter(counter, target);
+        obs.unobserve(counter);
+      });
+    },
+    { threshold: 0.35 }
+  );
+
+  counters.forEach((counter) => observer.observe(counter));
+}
+
+function animateCounter(element, target) {
+  const duration = 1600;
+  const startTime = performance.now();
+
+  function updateCounter(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+
+    // easeOutCubic
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const currentValue = Math.floor(eased * target);
+
+    element.textContent = currentValue.toLocaleString();
+
+    if (progress < 1) {
+      requestAnimationFrame(updateCounter);
+    } else {
+      element.textContent = target.toLocaleString();
     }
   }
 
-  // Smooth anchor offset improvement for sticky header
-  const header = document.querySelector(".site-header");
-  const navLinks = document.querySelectorAll('a[href^="#"]');
+  requestAnimationFrame(updateCounter);
+}
 
-  navLinks.forEach((link) => {
-    link.addEventListener("click", (e) => {
-      const targetId = link.getAttribute("href");
-      if (!targetId || targetId === "#") return;
+// =========================
+// Section Reveal on Scroll
+// =========================
+function setupSmoothSectionReveal() {
+  const sections = document.querySelectorAll(
+    ".service-card, .zone-card, .mini-card, .stat-card, .feature-box, .contact-card, .faq-item"
+  );
 
-      const target = document.querySelector(targetId);
-      if (!target) return;
+  if (!sections.length) return;
 
-      e.preventDefault();
-
-      const headerHeight = header ? header.offsetHeight : 0;
-      const targetPosition =
-        target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-
-      window.scrollTo({
-        top: targetPosition,
-        behavior: "smooth",
-      });
-    });
+  sections.forEach((item) => {
+    item.style.opacity = "0";
+    item.style.transform = "translateY(24px)";
+    item.style.transition = "opacity 0.7s ease, transform 0.7s ease";
   });
 
-  // Simple contact form demo behavior
-  const contactForm = document.querySelector(".contact-form");
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
 
-  if (contactForm) {
-    contactForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      alert("Thank you for contacting ENVEE Real Estate. We will get back to you soon.");
-      contactForm.reset();
-    });
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+        obs.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  sections.forEach((item) => observer.observe(item));
+}
+
+// =========================
+// Fireworks Background
+// =========================
+function setupFireworks() {
+  const canvas = document.getElementById("fireworks-canvas");
+  if (!canvas) return;
+
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return;
+
+  let width = 0;
+  let height = 0;
+  let fireworks = [];
+  let particles = [];
+  let animationId = null;
+
+  function resizeCanvas() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
   }
-});
+
+  class Firework {
+    constructor() {
+      this.x = Math.random() * width;
+      this.y = height + 10;
+      this.targetX = 80 + Math.random() * (width - 160);
+      this.targetY = 60 + Math.random() * (height * 0.45);
+      this.speed = 2 + Math.random() * 2.2;
+      this.angle = Math.atan2(this.targetY - this.y, this.targetX - this.x);
+      this.reached = false;
+    }
+
+    update() {
+      if (this.reached) return;
+
+      this.x += Math.cos(this.angle) * this.speed;
+      this.y += Math.sin(this.angle) * this.speed;
+
+      const dx = this.targetX - this.x;
+      const dy = this.targetY - this.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+
+      if (distance < 12) {
+        this.reached = true;
+        explode(this.targetX, this.targetY);
+      }
+    }
+
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, 2, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(212, 175, 55, 0.95)";
+      ctx.fill();
+    }
+  }
+
+  class Particle {
+    constructor(x, y) {
+      this.x = x;
+      this.y = y;
+      const angle = Math.random() * Math.PI * 2;
+      const speed = 1 + Math.random() * 4;
+      this.vx = Math.cos(angle) * speed;
+      this.vy = Math.sin(angle) * speed;
+      this.alpha = 1;
+      this.decay = 0.012 + Math.random() * 0.02;
+      this.radius = 1 + Math.random() * 2.2;
+
+      const palette = [
+        "212,175,55",   // gold
+        "255,215,120",  // light gold
+        "255,255,255",  // white
+        "173,216,230"   // pale blue
+      ];
+      this.color = palette[Math.floor(Math.random() * palette.length)];
+    }
+
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+      this.vy += 0.015;
+      this.alpha -= this.decay;
+    }
+
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${this.color}, ${Math.max(this.alpha, 0)})`;
+      ctx.fill();
+    }
+  }
+
+  function explode(x, y) {
+    const count = 30 + Math.floor(Math.random() * 20);
+    for (let i = 0; i < count; i++) {
+      particles.push(new Particle(x, y));
+    }
+  }
+
+  function maybeLaunchFirework() {
+    // Keep it subtle
+    if (Math.random() < 0.03) {
+      fireworks.push(new Firework());
+    }
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, width, height);
+
+    maybeLaunchFirework();
+
+    fireworks.forEach((firework) => {
+      firework.update();
+      firework.draw();
+    });
+
+    particles.forEach((particle) => {
+      particle.update();
+      particle.draw();
+    });
+
+    fireworks = fireworks.filter((firework) => !firework.reached);
+    particles = particles.filter((particle) => particle.alpha > 0);
+
+    animationId = requestAnimationFrame(animate);
+  }
+
+  resizeCanvas();
+  animate();
+
+  window.addEventListener("resize", resizeCanvas);
+
+  // Clean fallback if page unloads
+  window.addEventListener("beforeunload", () => {
+    if (animationId) cancelAnimationFrame(animationId);
+  });
+}
+
+// =========================
+// Dummy Form Handler
+// =========================
+function setupDummyForms() {
+  const forms = document.querySelectorAll("form");
+
+  forms.forEach((form) => {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const submitButton = form.querySelector("button[type='submit']");
+      if (submitButton) {
+        const originalText = submitButton.textContent;
+        submitButton.textContent = "Submitted";
+        submitButton.disabled = true;
+
+        setTimeout(() => {
+          submitButton.textContent = originalText;
+          submitButton.disabled = false;
+          form.reset();
+        }, 1800);
+      } else {
+        form.reset();
+      }
+
+      alert("Thank you. Your inquiry has been received.");
+    });
+  });
+}
