@@ -6,1136 +6,523 @@
   <title>ENVEE Real Estate LLC Dubai</title>
   <meta
     name="description"
-    content="ENVEE Real Estate LLC Dubai - Luxury real estate opportunities in Dubai and Sharjah."
+    content="ENVEE Real Estate LLC Dubai - Luxury real estate opportunities across Dubai and Sharjah."
   />
-  <style>
-    :root{
-      --navy:#0d2a57;
-      --navy-2:#102f63;
-      --gold:#d4af37;
-      --gold-soft:#e6c96b;
-      --white:#ffffff;
-      --offwhite:#f8f7f3;
-      --text:#e9edf5;
-      --muted:#b9c3d6;
-      --card:rgba(255,255,255,0.08);
-      --border:rgba(255,255,255,0.14);
-      --shadow:0 18px 45px rgba(0,0,0,0.28);
-      --radius:20px;
-      --max:1200px;
-    }
-
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at top, rgba(212,175,55,0.08), transparent 25%),
-        linear-gradient(180deg, var(--navy), #081a38 70%);
-      color:var(--white);
-      overflow-x:hidden;
-    }
-
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-    button,input,textarea,select{font:inherit}
-
-    .container{
-      width:min(92%, var(--max));
-      margin:0 auto;
-    }
-
-    /* Top nav */
-    .nav{
-      position:sticky;
-      top:0;
-      z-index:1000;
-      backdrop-filter:blur(14px);
-      background:rgba(7,20,44,0.72);
-      border-bottom:1px solid rgba(255,255,255,0.08);
-    }
-
-    .nav-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      padding:14px 0;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      min-width:0;
-    }
-
-    .brand img{
-      width:46px;
-      height:46px;
-      object-fit:cover;
-      border-radius:12px;
-      box-shadow:0 8px 20px rgba(0,0,0,0.25);
-      background:#fff;
-    }
-
-    .brand-text{
-      line-height:1.1;
-      min-width:0;
-    }
-
-    .brand-text strong{
-      display:block;
-      color:var(--gold);
-      letter-spacing:0.12em;
-      font-size:0.95rem;
-      white-space:nowrap;
-    }
-
-    .brand-text span{
-      display:block;
-      color:var(--muted);
-      font-size:0.78rem;
-      white-space:nowrap;
-    }
-
-    .nav-links{
-      display:flex;
-      gap:18px;
-      align-items:center;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-
-    .nav-links a{
-      color:var(--text);
-      font-size:0.95rem;
-      opacity:0.95;
-    }
-
-    .nav-links a:hover{
-      color:var(--gold-soft);
-    }
-
-    .nav-cta{
-      padding:11px 16px;
-      border:1px solid rgba(212,175,55,0.45);
-      border-radius:999px;
-      color:var(--gold);
-      background:rgba(212,175,55,0.08);
-      font-weight:700;
-    }
-
-    /* Hero */
-    .hero{
-      position:relative;
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      overflow:hidden;
-    }
-
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(to bottom, rgba(6,16,36,0.25), rgba(6,16,36,0.70)),
-        radial-gradient(circle at 70% 25%, rgba(212,175,55,0.12), transparent 22%);
-      z-index:0;
-    }
-
-    .hero-grid{
-      position:relative;
-      z-index:2;
-      display:grid;
-      grid-template-columns:1.1fr 0.9fr;
-      gap:30px;
-      align-items:center;
-      padding:58px 0 72px;
-    }
-
-    .hero-copy{
-      max-width:640px;
-    }
-
-    .eyebrow{
-      display:inline-block;
-      margin-bottom:14px;
-      color:var(--gold-soft);
-      font-weight:700;
-      letter-spacing:0.18em;
-      text-transform:uppercase;
-      font-size:0.76rem;
-      padding:8px 12px;
-      border:1px solid rgba(212,175,55,0.24);
-      border-radius:999px;
-      background:rgba(212,175,55,0.07);
-    }
-
-    h1{
-      margin:0 0 16px;
-      font-size:clamp(2.3rem, 6vw, 5rem);
-      line-height:0.98;
-      letter-spacing:0.02em;
-    }
-
-    .hero-copy p{
-      margin:0;
-      color:var(--muted);
-      font-size:1.06rem;
-      line-height:1.75;
-      max-width:560px;
-    }
-
-    .hero-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:14px;
-      margin-top:28px;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:50px;
-      padding:0 20px;
-      border-radius:999px;
-      border:none;
-      cursor:pointer;
-      transition:0.25s ease;
-      font-weight:700;
-    }
-
-    .btn-primary{
-      background:linear-gradient(135deg, var(--gold), var(--gold-soft));
-      color:#14223f;
-      box-shadow:0 12px 28px rgba(212,175,55,0.25);
-    }
-
-    .btn-primary:hover{
-      transform:translateY(-2px);
-      box-shadow:0 16px 34px rgba(212,175,55,0.30);
-    }
-
-    .btn-secondary{
-      background:rgba(255,255,255,0.06);
-      color:var(--white);
-      border:1px solid rgba(255,255,255,0.12);
-    }
-
-    .btn-secondary:hover{
-      background:rgba(255,255,255,0.10);
-      transform:translateY(-2px);
-    }
-
-    .hero-card{
-      background:linear-gradient(180deg, rgba(255,255,255,0.11), rgba(255,255,255,0.05));
-      border:1px solid var(--border);
-      border-radius:28px;
-      box-shadow:var(--shadow);
-      padding:22px;
-      position:relative;
-      overflow:hidden;
-    }
-
-    .hero-card::after{
-      content:"";
-      position:absolute;
-      inset:auto -30px -30px auto;
-      width:140px;
-      height:140px;
-      background:radial-gradient(circle, rgba(212,175,55,0.22), transparent 65%);
-      pointer-events:none;
-    }
-
-    .logo-panel{
-      display:grid;
-      place-items:center;
-      padding:18px 12px 10px;
-    }
-
-    .logo-panel img{
-      width:min(100%, 380px);
-      border-radius:18px;
-      box-shadow:0 14px 38px rgba(0,0,0,0.25);
-      border:1px solid rgba(255,255,255,0.10);
-    }
-
-    .hero-stats{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:12px;
-      margin-top:18px;
-    }
-
-    .stat{
-      border-radius:18px;
-      padding:16px 14px;
-      background:rgba(255,255,255,0.05);
-      border:1px solid rgba(255,255,255,0.10);
-      text-align:center;
-    }
-
-    .stat strong{
-      display:block;
-      font-size:1.1rem;
-      color:var(--gold-soft);
-      margin-bottom:6px;
-    }
-
-    .stat span{
-      color:var(--muted);
-      font-size:0.86rem;
-    }
-
-    /* Animated skyline */
-    .skyline{
-      position:absolute;
-      left:0;
-      right:0;
-      bottom:0;
-      height:170px;
-      z-index:1;
-      opacity:0.55;
-      pointer-events:none;
-    }
-
-    .building{
-      position:absolute;
-      bottom:0;
-      background:linear-gradient(to top, rgba(2,8,20,0.95), rgba(9,22,47,0.78));
-      border-top:1px solid rgba(212,175,55,0.10);
-      box-shadow:inset 0 0 0 1px rgba(255,255,255,0.03);
-    }
-
-    .building::before{
-      content:"";
-      position:absolute;
-      inset:10px 8px 12px 8px;
-      background:
-        repeating-linear-gradient(
-          to right,
-          rgba(212,175,55,0.16) 0 8px,
-          transparent 8px 18px
-        ),
-        repeating-linear-gradient(
-          to bottom,
-          rgba(255,255,255,0.04) 0 10px,
-          transparent 10px 22px
-        );
-      opacity:0.55;
-    }
-
-    /* Sections */
-    section{
-      padding:82px 0;
-    }
-
-    .section-head{
-      text-align:center;
-      margin-bottom:34px;
-    }
-
-    .section-head .tag{
-      color:var(--gold-soft);
-      text-transform:uppercase;
-      letter-spacing:0.18em;
-      font-size:0.75rem;
-      font-weight:700;
-      margin-bottom:12px;
-      display:block;
-    }
-
-    .section-head h2{
-      margin:0 0 10px;
-      font-size:clamp(1.8rem, 4vw, 3rem);
-    }
-
-    .section-head p{
-      margin:0 auto;
-      max-width:720px;
-      color:var(--muted);
-      line-height:1.7;
-    }
-
-    /* About */
-    .about-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px;
-    }
-
-    .card{
-      background:linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:26px;
-    }
-
-    .card h3{
-      margin:0 0 14px;
-      color:var(--gold-soft);
-      font-size:1.1rem;
-      letter-spacing:0.02em;
-    }
-
-    .card p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.8;
-    }
-
-    .mini-list{
-      display:grid;
-      gap:14px;
-      margin-top:18px;
-    }
-
-    .mini-item{
-      padding:14px 16px;
-      border-radius:16px;
-      background:rgba(255,255,255,0.04);
-      border:1px solid rgba(255,255,255,0.08);
-    }
-
-    .mini-item strong{
-      display:block;
-      color:var(--white);
-      margin-bottom:4px;
-    }
-
-    .mini-item span{
-      color:var(--muted);
-      font-size:0.95rem;
-    }
-
-    /* Cities */
-    .city-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
-    }
-
-    .city-card{
-      padding:22px;
-      border-radius:22px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
-      border:1px solid var(--border);
-      box-shadow:var(--shadow);
-      transition:0.3s ease;
-    }
-
-    .city-card:hover{
-      transform:translateY(-4px);
-      border-color:rgba(212,175,55,0.32);
-    }
-
-    .city-card h3{
-      margin:0 0 10px;
-      color:var(--gold-soft);
-    }
-
-    .city-card p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.7;
-    }
-
-    /* Properties */
-    .property-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
-    }
-
-    .property-card{
-      overflow:hidden;
-      border-radius:24px;
-      border:1px solid var(--border);
-      background:linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
-      box-shadow:var(--shadow);
-    }
-
-    .property-image{
-      height:220px;
-      position:relative;
-      background:
-        linear-gradient(160deg, rgba(212,175,55,0.18), rgba(255,255,255,0.03)),
-        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.12), transparent 20%),
-        linear-gradient(180deg, #24457c, #0b1d40);
-      overflow:hidden;
-    }
-
-    .property-image::before{
-      content:"";
-      position:absolute;
-      left:0;
-      right:0;
-      bottom:0;
-      height:46%;
-      background:
-        linear-gradient(to top, rgba(3,9,22,0.92), rgba(3,9,22,0.35)),
-        repeating-linear-gradient(
-          to right,
-          rgba(212,175,55,0.14) 0 14px,
-          transparent 14px 32px
-        );
-      clip-path:polygon(0 100%, 0 48%, 13% 42%, 22% 56%, 34% 35%, 48% 64%, 65% 28%, 82% 55%, 100% 40%, 100% 100%);
-      opacity:0.9;
-    }
-
-    .property-body{
-      padding:18px;
-    }
-
-    .pill{
-      display:inline-block;
-      margin-bottom:10px;
-      padding:7px 12px;
-      border-radius:999px;
-      background:rgba(212,175,55,0.12);
-      color:var(--gold-soft);
-      font-size:0.78rem;
-      font-weight:700;
-      letter-spacing:0.08em;
-      text-transform:uppercase;
-    }
-
-    .property-body h3{
-      margin:0 0 8px;
-      font-size:1.15rem;
-    }
-
-    .property-meta,
-    .property-features{
-      color:var(--muted);
-      font-size:0.95rem;
-      line-height:1.7;
-    }
-
-    .property-price{
-      margin:14px 0 12px;
-      font-size:1.25rem;
-      color:var(--gold-soft);
-      font-weight:700;
-    }
-
-    /* Services */
-    .services-grid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:18px;
-    }
-
-    .service-card{
-      padding:22px;
-      border-radius:20px;
-      background:rgba(255,255,255,0.05);
-      border:1px solid rgba(255,255,255,0.10);
-      box-shadow:var(--shadow);
-    }
-
-    .service-card .icon{
-      width:48px;
-      height:48px;
-      border-radius:14px;
-      display:grid;
-      place-items:center;
-      background:rgba(212,175,55,0.14);
-      color:var(--gold-soft);
-      font-size:1.3rem;
-      margin-bottom:14px;
-    }
-
-    .service-card h3{
-      margin:0 0 10px;
-      font-size:1.05rem;
-    }
-
-    .service-card p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.7;
-      font-size:0.95rem;
-    }
-
-    /* Contact */
-    .contact-grid{
-      display:grid;
-      grid-template-columns:0.95fr 1.05fr;
-      gap:24px;
-    }
-
-    .contact-info .info-block{
-      padding:16px 0;
-      border-bottom:1px solid rgba(255,255,255,0.08);
-    }
-
-    .contact-info .info-block:last-child{
-      border-bottom:none;
-    }
-
-    .contact-info strong{
-      display:block;
-      color:var(--gold-soft);
-      margin-bottom:6px;
-    }
-
-    .contact-info span,
-    .contact-info p{
-      color:var(--muted);
-      margin:0;
-      line-height:1.75;
-    }
-
-    form{
-      display:grid;
-      gap:14px;
-    }
-
-    .form-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:14px;
-    }
-
-    input, textarea, select{
-      width:100%;
-      padding:15px 16px;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,0.12);
-      background:rgba(255,255,255,0.06);
-      color:var(--white);
-      outline:none;
-    }
-
-    input::placeholder,
-    textarea::placeholder{
-      color:#c6cde0;
-    }
-
-    textarea{
-      min-height:140px;
-      resize:vertical;
-    }
-
-    /* Footer */
-    footer{
-      padding:26px 0 46px;
-      color:var(--muted);
-    }
-
-    .footer-box{
-      border-top:1px solid rgba(255,255,255,0.08);
-      padding-top:24px;
-      display:flex;
-      justify-content:space-between;
-      gap:14px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-
-    .footer-brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-    }
-
-    .footer-brand img{
-      width:42px;
-      height:42px;
-      object-fit:cover;
-      border-radius:10px;
-      background:#fff;
-    }
-
-    /* Fireworks */
-    .fireworks{
-      position:absolute;
-      inset:0;
-      pointer-events:none;
-      z-index:1;
-      overflow:hidden;
-    }
-
-    .burst{
-      position:absolute;
-      width:6px;
-      height:6px;
-      border-radius:50%;
-      background:var(--gold-soft);
-      box-shadow:
-        0 0 0 0 rgba(230,201,107,0.55),
-        0 0 18px 8px rgba(230,201,107,0.10);
-      animation:burst 4.8s infinite ease-out;
-      opacity:0;
-    }
-
-    .b1{top:18%; left:12%; animation-delay:0.4s;}
-    .b2{top:24%; left:80%; animation-delay:1.2s;}
-    .b3{top:12%; left:58%; animation-delay:2.2s;}
-    .b4{top:30%; left:30%; animation-delay:3.1s;}
-    .b5{top:20%; left:68%; animation-delay:4.1s;}
-
-    @keyframes burst{
-      0%{transform:scale(0.2);opacity:0}
-      8%{opacity:1}
-      20%{
-        opacity:1;
-        box-shadow:
-          0 0 0 26px rgba(230,201,107,0),
-          0 0 24px 12px rgba(230,201,107,0.16);
-      }
-      35%{opacity:0}
-      100%{opacity:0; transform:scale(1.35)}
-    }
-
-    /* Scroll reveal */
-    .reveal{
-      opacity:0;
-      transform:translateY(24px);
-      transition:all 0.7s ease;
-    }
-
-    .reveal.show{
-      opacity:1;
-      transform:translateY(0);
-    }
-
-    /* Responsive */
-    @media (max-width: 1024px){
-      .hero-grid,
-      .about-grid,
-      .contact-grid,
-      .city-grid,
-      .property-grid,
-      .services-grid{
-        grid-template-columns:1fr 1fr;
-      }
-
-      .hero-copy{
-        max-width:none;
-      }
-    }
-
-    @media (max-width: 720px){
-      .nav-inner{
-        align-items:flex-start;
-        flex-direction:column;
-      }
-
-      .nav-links{
-        width:100%;
-        justify-content:flex-start;
-      }
-
-      .hero{
-        min-height:auto;
-      }
-
-      .hero-grid,
-      .about-grid,
-      .contact-grid,
-      .city-grid,
-      .property-grid,
-      .services-grid,
-      .form-grid,
-      .hero-stats{
-        grid-template-columns:1fr;
-      }
-
-      .hero-grid{
-        padding:34px 0 90px;
-      }
-
-      h1{
-        font-size:2.35rem;
-      }
-
-      .hero-copy p{
-        font-size:1rem;
-      }
-
-      .skyline{
-        height:130px;
-      }
-
-      section{
-        padding:68px 0;
-      }
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <nav class="nav">
-    <div class="container nav-inner">
-      <a href="#top" class="brand">
-        <img src="logo.jpeg" alt="ENVEE Real Estate logo">
-        <div class="brand-text">
-          <strong>ENVEE REAL ESTATE</strong>
-          <span>LLC Dubai</span>
-        </div>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="#home" class="brand">
+        <img src="images/envee-logo.jpeg" alt="ENVEE Real Estate logo" class="brand-logo" />
       </a>
 
-      <div class="nav-links">
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="siteNav">
+        <a href="#home">Home</a>
         <a href="#about">About</a>
-        <a href="#cities">Cities</a>
-        <a href="#properties">Properties</a>
         <a href="#services">Services</a>
-        <a href="#contact" class="nav-cta">Contact Us</a>
-      </div>
-    </div>
-  </nav>
-
-  <header class="hero" id="top">
-    <div class="fireworks">
-      <div class="burst b1"></div>
-      <div class="burst b2"></div>
-      <div class="burst b3"></div>
-      <div class="burst b4"></div>
-      <div class="burst b5"></div>
-    </div>
-
-    <div class="container hero-grid">
-      <div class="hero-copy reveal">
-        <span class="eyebrow">Luxury Living in the UAE</span>
-        <h1>Find premium properties in Dubai and Sharjah.</h1>
-        <p>
-          ENVEE Real Estate LLC Dubai connects clients with elegant homes,
-          high-value investment opportunities, and premium real estate service
-          across the UAE. Designed for buyers, sellers, and investors who value
-          trust, presentation, and results.
-        </p>
-
-        <div class="hero-actions">
-          <a href="#properties" class="btn btn-primary">Explore Listings</a>
-          <a href="#contact" class="btn btn-secondary">Book a Consultation</a>
-        </div>
-      </div>
-
-      <div class="hero-card reveal">
-        <div class="logo-panel">
-          <img src="logo.jpeg" alt="ENVEE Real Estate LLC Dubai logo">
-        </div>
-
-        <div class="hero-stats">
-          <div class="stat">
-            <strong>Dubai</strong>
-            <span>Luxury & investment focus</span>
-          </div>
-          <div class="stat">
-            <strong>Sharjah</strong>
-            <span>Family & growth communities</span>
-          </div>
-          <div class="stat">
-            <strong>UAE</strong>
-            <span>Trusted client service</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="skyline">
-      <div class="building" style="left:0%; width:8%; height:46%;"></div>
-      <div class="building" style="left:7%; width:7%; height:70%;"></div>
-      <div class="building" style="left:13%; width:8%; height:38%;"></div>
-      <div class="building" style="left:20%; width:6%; height:82%;"></div>
-      <div class="building" style="left:25%; width:7%; height:54%;"></div>
-      <div class="building" style="left:31%; width:9%; height:62%;"></div>
-      <div class="building" style="left:40%; width:6%; height:90%;"></div>
-      <div class="building" style="left:46%; width:8%; height:44%;"></div>
-      <div class="building" style="left:54%; width:10%; height:74%;"></div>
-      <div class="building" style="left:63%; width:7%; height:55%;"></div>
-      <div class="building" style="left:70%; width:8%; height:88%;"></div>
-      <div class="building" style="left:79%; width:7%; height:48%;"></div>
-      <div class="building" style="left:86%; width:6%; height:68%;"></div>
-      <div class="building" style="left:92%; width:8%; height:52%;"></div>
+        <a href="#properties">Properties</a>
+        <a href="#cities">Cities</a>
+        <a href="#why-us">Why ENVEE</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact" class="nav-cta">Contact</a>
+      </nav>
     </div>
   </header>
 
-  <section id="about">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="tag">About Us</span>
-        <h2>A modern luxury real estate presence built for trust.</h2>
-        <p>
-          ENVEE Real Estate LLC Dubai is positioned to serve clients seeking
-          premium residential opportunities, investment guidance, and polished
-          real estate support across high-demand UAE markets.
-        </p>
-      </div>
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="hero-overlay"></div>
+      <div class="hero-fireworks" id="heroFireworks" aria-hidden="true"></div>
 
-      <div class="about-grid">
-        <div class="card reveal">
-          <h3>Who We Are</h3>
-          <p>
-            We present real estate with clarity, elegance, and confidence.
-            Whether a client is searching for a luxury apartment in Dubai,
-            a family home in Sharjah, or a strong investment opportunity,
-            the experience should feel seamless, premium, and dependable.
+      <div class="container hero-content">
+        <div class="hero-brand reveal">
+          <img src="images/envee-logo.jpeg" alt="ENVEE Real Estate LLC Dubai" class="hero-logo" />
+        </div>
+
+        <p class="hero-kicker reveal">Luxury Real Estate in the UAE</p>
+        <h1 class="hero-title reveal">
+          Exceptional Properties in Dubai & Sharjah
+        </h1>
+        <p class="hero-text reveal">
+          ENVEE Real Estate LLC Dubai delivers premium residential and investment
+          opportunities with a refined client experience, market insight, and
+          trusted guidance across the UAE.
+        </p>
+
+        <div class="hero-actions reveal">
+          <a href="#properties" class="btn btn-gold">View Properties</a>
+          <a href="#contact" class="btn btn-outline">Book a Consultation</a>
+        </div>
+
+        <div class="hero-stats reveal">
+          <div class="stat-card">
+            <h3 class="counter" data-target="200">0</h3>
+            <p>Premium Opportunities</p>
+          </div>
+          <div class="stat-card">
+            <h3 class="counter" data-target="2">0</h3>
+            <p>Key UAE Cities</p>
+          </div>
+          <div class="stat-card">
+            <h3 class="counter" data-target="100">0</h3>
+            <p>Client-Focused Service</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section section-dark" id="about">
+      <div class="container about-grid">
+        <div class="about-text reveal">
+          <p class="section-tag">About ENVEE</p>
+          <h2 class="section-title">A Refined Approach to Real Estate</h2>
+          <p class="section-copy">
+            ENVEE Real Estate LLC Dubai is built around premium service,
+            strategic market knowledge, and a strong understanding of the UAE
+            property landscape. We focus on helping clients discover high-value
+            opportunities across Dubai and Sharjah with clarity, confidence, and
+            discretion.
+          </p>
+          <p class="section-copy">
+            Whether you are searching for a luxury home, an investment property,
+            or a promising off-plan opportunity, ENVEE is committed to making
+            the process seamless, elegant, and rewarding.
           </p>
 
-          <div class="mini-list">
-            <div class="mini-item">
-              <strong>Our Vision</strong>
-              <span>To deliver refined real estate experiences across the UAE.</span>
+          <div class="about-points">
+            <div class="about-point">
+              <span class="about-icon">◆</span>
+              <div>
+                <h3>Luxury Positioning</h3>
+                <p>Premium presentation and curated property opportunities.</p>
+              </div>
             </div>
-            <div class="mini-item">
-              <strong>Our Focus</strong>
-              <span>Luxury homes, strong locations, and client-first service.</span>
+            <div class="about-point">
+              <span class="about-icon">◆</span>
+              <div>
+                <h3>Market Insight</h3>
+                <p>Focused guidance across key UAE real estate segments.</p>
+              </div>
             </div>
-            <div class="mini-item">
-              <strong>Our Style</strong>
-              <span>Professional presentation with a premium market feel.</span>
+            <div class="about-point">
+              <span class="about-icon">◆</span>
+              <div>
+                <h3>Client Experience</h3>
+                <p>Responsive, polished, and relationship-driven service.</p>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="card reveal">
-          <h3>Company Profile</h3>
-          <p>
-            This section can be updated with your real business description,
-            founder details, registration lines, office location, and service
-            specialties. For now, it is designed as a polished placeholder
-            that already looks client-ready.
+        <div class="about-media reveal">
+          <img
+            src="images/dubai-skyline-2.jpeg"
+            alt="Dubai skyline view"
+            class="section-image"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section section-light" id="services">
+      <div class="container">
+        <p class="section-tag center">Our Services</p>
+        <h2 class="section-title center">Tailored Real Estate Solutions</h2>
+        <p class="section-copy center section-intro">
+          Designed for clients seeking elegance, opportunity, and confidence in
+          every transaction.
+        </p>
+
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <div class="service-number">01</div>
+            <h3>Residential Properties</h3>
+            <p>
+              Discover refined living through apartments, villas, waterfront
+              residences, and family homes in leading communities.
+            </p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-number">02</div>
+            <h3>Commercial Real Estate</h3>
+            <p>
+              Find professional spaces and investment assets aligned with your
+              long-term business and portfolio goals.
+            </p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-number">03</div>
+            <h3>Off-Plan Projects</h3>
+            <p>
+              Access future-forward developments with strong lifestyle appeal and
+              compelling investment potential.
+            </p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-number">04</div>
+            <h3>Investment Advisory</h3>
+            <p>
+              Evaluate premium real estate opportunities with a sharper focus on
+              positioning, growth, and value.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Properties -->
+    <section class="section section-dark" id="properties">
+      <div class="container">
+        <p class="section-tag center">Featured Properties</p>
+        <h2 class="section-title center">Curated Opportunities</h2>
+        <p class="section-copy center section-intro">
+          A selection of elegant residential and investment-focused options
+          across key UAE destinations.
+        </p>
+
+        <div class="properties-grid">
+          <article class="property-card reveal">
+            <div class="property-image-wrap">
+              <img
+                src="images/hero-dubai.jpeg"
+                alt="Luxury marina apartment in Dubai"
+                class="property-image"
+              />
+              <span class="property-badge">Dubai Marina</span>
+            </div>
+            <div class="property-content">
+              <h3>Luxury Marina Residence</h3>
+              <p class="property-meta">3 Bedrooms • Waterfront View • Premium Finish</p>
+              <p class="property-text">
+                An elegant property experience designed for buyers seeking
+                prestige, comfort, and prime Dubai positioning.
+              </p>
+              <a href="#contact" class="property-link">Request Details</a>
+            </div>
+          </article>
+
+          <article class="property-card reveal">
+            <div class="property-image-wrap">
+              <img
+                src="images/dubai-skyline-2.jpeg"
+                alt="Downtown Dubai luxury property"
+                class="property-image"
+              />
+              <span class="property-badge">Downtown Dubai</span>
+            </div>
+            <div class="property-content">
+              <h3>Skyline Investment Suite</h3>
+              <p class="property-meta">High-Rise Living • City Views • Investor Appeal</p>
+              <p class="property-text">
+                A polished urban option for those looking to combine lifestyle
+                value with strong location appeal.
+              </p>
+              <a href="#contact" class="property-link">Request Details</a>
+            </div>
+          </article>
+
+          <article class="property-card reveal">
+            <div class="property-image-wrap">
+              <img
+                src="images/hero-dubai.jpeg"
+                alt="Sharjah family residence"
+                class="property-image"
+              />
+              <span class="property-badge">Sharjah</span>
+            </div>
+            <div class="property-content">
+              <h3>Modern Family Residence</h3>
+              <p class="property-meta">Spacious Layout • Community Living • Modern Design</p>
+              <p class="property-text">
+                A contemporary residential option suited for comfort, family
+                living, and long-term value.
+              </p>
+              <a href="#contact" class="property-link">Request Details</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cities -->
+    <section class="section section-light" id="cities">
+      <div class="container">
+        <p class="section-tag center">Cities We Serve</p>
+        <h2 class="section-title center">Focused on Dubai & Sharjah</h2>
+
+        <div class="cities-grid">
+          <article class="city-card reveal city-card-large">
+            <img
+              src="images/hero-dubai.jpeg"
+              alt="Dubai marina skyline"
+              class="city-image"
+            />
+            <div class="city-content">
+              <h3>Dubai</h3>
+              <p>
+                A global destination for luxury living, investment growth, iconic
+                developments, and world-class lifestyle appeal.
+              </p>
+            </div>
+          </article>
+
+          <article class="city-card reveal">
+            <img
+              src="images/dubai-skyline-2.jpeg"
+              alt="Sharjah and UAE skyline inspiration"
+              class="city-image"
+            />
+            <div class="city-content">
+              <h3>Sharjah</h3>
+              <p>
+                A strong residential market with family-focused communities,
+                modern developments, and attractive long-term value.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section section-dark" id="why-us">
+      <div class="container">
+        <p class="section-tag center">Why Choose ENVEE</p>
+        <h2 class="section-title center">Luxury. Trust. Results.</h2>
+
+        <div class="why-grid">
+          <article class="why-card reveal">
+            <h3>Premium Brand Experience</h3>
+            <p>
+              Every touchpoint is designed to reflect professionalism, elegance,
+              and confidence.
+            </p>
+          </article>
+
+          <article class="why-card reveal">
+            <h3>UAE Market Awareness</h3>
+            <p>
+              We focus on strong opportunities in key areas with a clear sense of
+              positioning and value.
+            </p>
+          </article>
+
+          <article class="why-card reveal">
+            <h3>Client-Centered Guidance</h3>
+            <p>
+              We prioritize clarity, responsiveness, and a smooth journey from
+              first inquiry to final decision.
+            </p>
+          </article>
+
+          <article class="why-card reveal">
+            <h3>Investment Perspective</h3>
+            <p>
+              We help align property opportunities with long-term goals and
+              premium market potential.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust / Stats -->
+    <section class="section section-light" id="trust">
+      <div class="container">
+        <p class="section-tag center">Our Strength</p>
+        <h2 class="section-title center">Built for Confidence</h2>
+
+        <div class="trust-grid">
+          <div class="trust-card reveal">
+            <h3 class="counter" data-target="1">0</h3>
+            <p>Billion-Level Vision</p>
+          </div>
+          <div class="trust-card reveal">
+            <h3 class="counter" data-target="15">0</h3>
+            <p>Years of Ambition</p>
+          </div>
+          <div class="trust-card reveal">
+            <h3 class="counter" data-target="2000">0</h3>
+            <p>Client-First Mindset</p>
+          </div>
+          <div class="trust-card reveal">
+            <h3 class="counter" data-target="100">0</h3>
+            <p>Premium Service Standard</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section-dark" id="faq">
+      <div class="container faq-container">
+        <p class="section-tag center">FAQ</p>
+        <h2 class="section-title center">Frequently Asked Questions</h2>
+
+        <div class="faq-list">
+          <div class="faq-item reveal">
+            <button class="faq-question">
+              What kind of properties does ENVEE handle?
+            </button>
+            <div class="faq-answer">
+              <p>
+                ENVEE focuses on premium residential, commercial, and investment
+                opportunities, including luxury and off-plan real estate.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal">
+            <button class="faq-question">
+              Which cities do you primarily serve?
+            </button>
+            <div class="faq-answer">
+              <p>
+                Our current focus is on Dubai and Sharjah, with an emphasis on
+                high-value locations and refined property opportunities.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal">
+            <button class="faq-question">
+              Can I inquire about investment options?
+            </button>
+            <div class="faq-answer">
+              <p>
+                Yes. We can help guide you toward property opportunities aligned
+                with your investment goals, lifestyle needs, and market
+                preferences.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal">
+            <button class="faq-question">
+              How do I get in touch with ENVEE?
+            </button>
+            <div class="faq-answer">
+              <p>
+                Use the contact form below and we will get back to you to discuss
+                your property interests and requirements.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section section-light" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-info reveal">
+          <p class="section-tag">Contact Us</p>
+          <h2 class="section-title">Start Your Property Journey</h2>
+          <p class="section-copy">
+            Share your interest and our team will connect with you to discuss
+            suitable real estate opportunities in Dubai and Sharjah.
           </p>
 
-          <div class="mini-list">
-            <div class="mini-item">
-              <strong>Company Name</strong>
-              <span>ENVEE Real Estate LLC Dubai</span>
+          <div class="contact-details">
+            <div class="contact-detail">
+              <span>Email</span>
+              <p>info@enveerealestate.com</p>
             </div>
-            <div class="mini-item">
-              <strong>Service Areas</strong>
-              <span>Dubai, Sharjah, and selected UAE opportunities</span>
+            <div class="contact-detail">
+              <span>Phone</span>
+              <p>+971 00 000 0000</p>
             </div>
-            <div class="mini-item">
-              <strong>Primary Offering</strong>
-              <span>Buying, selling, consulting, and property investment support</span>
+            <div class="contact-detail">
+              <span>Location</span>
+              <p>Dubai, United Arab Emirates</p>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <section id="cities">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="tag">Key Markets</span>
-        <h2>Focused on strong, recognizable UAE destinations.</h2>
-        <p>
-          The site currently highlights Dubai and Sharjah as your main city
-          presence, with an additional UAE-wide positioning card for flexibility.
-        </p>
-      </div>
-
-      <div class="city-grid">
-        <div class="city-card reveal">
-          <h3>Dubai</h3>
-          <p>
-            High-end living, iconic developments, international demand,
-            and premium investment potential across the city.
-          </p>
-        </div>
-
-        <div class="city-card reveal">
-          <h3>Sharjah</h3>
-          <p>
-            A growing residential market with family-oriented communities,
-            accessible value, and long-term lifestyle appeal.
-          </p>
-        </div>
-
-        <div class="city-card reveal">
-          <h3>UAE Opportunities</h3>
-          <p>
-            Flexible positioning for select listings, investment inquiries,
-            and future expansion beyond the initial core cities.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="properties">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="tag">Featured Properties</span>
-        <h2>Elegant placeholder listings ready to be replaced with real inventory.</h2>
-        <p>
-          These cards make the website feel complete immediately. Later,
-          you can swap the text, prices, and images with actual listings.
-        </p>
-      </div>
-
-      <div class="property-grid">
-        <div class="property-card reveal">
-          <div class="property-image"></div>
-          <div class="property-body">
-            <span class="pill">Dubai Marina</span>
-            <h3>Luxury Waterfront Apartment</h3>
-            <div class="property-meta">Dubai, UAE</div>
-            <div class="property-price">AED 2,450,000</div>
-            <div class="property-features">3 Beds • 3 Baths • 1,850 sq ft</div>
+        <form class="contact-form reveal">
+          <div class="form-row">
+            <input type="text" name="name" placeholder="Your Name" required />
           </div>
-        </div>
-
-        <div class="property-card reveal">
-          <div class="property-image"></div>
-          <div class="property-body">
-            <span class="pill">Downtown Dubai</span>
-            <h3>Modern City Residence</h3>
-            <div class="property-meta">Dubai, UAE</div>
-            <div class="property-price">AED 3,180,000</div>
-            <div class="property-features">2 Beds • 2 Baths • Burj skyline views</div>
+          <div class="form-row">
+            <input type="email" name="email" placeholder="Your Email" required />
           </div>
-        </div>
-
-        <div class="property-card reveal">
-          <div class="property-image"></div>
-          <div class="property-body">
-            <span class="pill">Sharjah</span>
-            <h3>Family Villa Community Home</h3>
-            <div class="property-meta">Sharjah, UAE</div>
-            <div class="property-price">AED 1,890,000</div>
-            <div class="property-features">4 Beds • 4 Baths • Spacious layout</div>
+          <div class="form-row">
+            <input type="tel" name="phone" placeholder="Phone Number" />
           </div>
-        </div>
+          <div class="form-row">
+            <select name="interest">
+              <option value="">Interested In</option>
+              <option value="buying">Buying</option>
+              <option value="selling">Selling</option>
+              <option value="investing">Investing</option>
+              <option value="off-plan">Off-Plan Projects</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <textarea
+              name="message"
+              rows="5"
+              placeholder="Tell us what kind of property you are looking for"
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold btn-full">Send Inquiry</button>
+        </form>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <section id="services">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="tag">Services</span>
-        <h2>Designed to present ENVEE as polished, premium, and client-ready.</h2>
-        <p>
-          These service blocks give the website strong structure even before
-          you finalize all business details.
-        </p>
-      </div>
-
-      <div class="services-grid">
-        <div class="service-card reveal">
-          <div class="icon">🏙</div>
-          <h3>Property Sales</h3>
-          <p>Guidance for premium apartments, villas, and investment-ready listings.</p>
-        </div>
-
-        <div class="service-card reveal">
-          <div class="icon">📈</div>
-          <h3>Investment Support</h3>
-          <p>Market-oriented assistance for clients seeking high-potential UAE opportunities.</p>
-        </div>
-
-        <div class="service-card reveal">
-          <div class="icon">🤝</div>
-          <h3>Client Consultation</h3>
-          <p>Professional support for buyers, sellers, and first-time real estate inquiries.</p>
-        </div>
-
-        <div class="service-card reveal">
-          <div class="icon">🔑</div>
-          <h3>Luxury Listings</h3>
-          <p>Presentation-focused marketing and positioning for premium real estate.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="tag">Contact</span>
-        <h2>Invite clients to reach out directly.</h2>
-        <p>
-          This form is currently visual only. Later, it can be connected to
-          email, WhatsApp, Google Forms, or a real backend.
-        </p>
-      </div>
-
-      <div class="contact-grid">
-        <div class="card contact-info reveal">
-          <h3>ENVEE Real Estate LLC Dubai</h3>
-
-          <div class="info-block">
-            <strong>Primary Markets</strong>
-            <span>Dubai and Sharjah, UAE</span>
-          </div>
-
-          <div class="info-block">
-            <strong>Email</strong>
-            <span>info@enveerealestate.com</span>
-          </div>
-
-          <div class="info-block">
-            <strong>Phone</strong>
-            <span>+971 XX XXX XXXX</span>
-          </div>
-
-          <div class="info-block">
-            <strong>Office</strong>
-            <p>Replace this with your office location or consultation address.</p>
-          </div>
-        </div>
-
-        <div class="card reveal">
-          <form onsubmit="event.preventDefault(); alert('Thank you. Your inquiry form is currently a demo section.');">
-            <div class="form-grid">
-              <input type="text" placeholder="Full Name" required>
-              <input type="email" placeholder="Email Address" required>
-            </div>
-
-            <div class="form-grid">
-              <input type="tel" placeholder="Phone Number">
-              <select>
-                <option>Interested In</option>
-                <option>Buying</option>
-                <option>Selling</option>
-                <option>Investment</option>
-                <option>Consultation</option>
-              </select>
-            </div>
-
-            <textarea placeholder="Tell us what kind of property or service you are looking for."></textarea>
-            <button class="btn btn-primary" type="submit">Send Inquiry</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container footer-box">
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
       <div class="footer-brand">
-        <img src="logo.jpeg" alt="ENVEE logo">
-        <div>
-          <strong style="display:block;color:var(--gold-soft);letter-spacing:0.1em;">ENVEE REAL ESTATE</strong>
-          <span>Luxury real estate presence in Dubai and Sharjah</span>
-        </div>
+        <img src="images/envee-logo.jpeg" alt="ENVEE logo" class="footer-logo" />
+        <p>
+          ENVEE Real Estate LLC Dubai offers a premium, client-focused approach
+          to real estate across Dubai and Sharjah.
+        </p>
       </div>
 
-      <div>© 2026 ENVEE Real Estate LLC Dubai. All rights reserved.</div>
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#properties">Properties</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="footer-links">
+        <h3>Locations</h3>
+        <p>Dubai</p>
+        <p>Sharjah</p>
+        <p>United Arab Emirates</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 ENVEE Real Estate LLC Dubai. All rights reserved.</p>
     </div>
   </footer>
 
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
